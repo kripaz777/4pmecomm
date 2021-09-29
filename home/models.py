@@ -8,6 +8,7 @@ class Category(models.Model):
 	slug = models.CharField(max_length= 500,unique = True)
 	description = models.TextField(blank = True)
 	image = models.ImageField(upload_to = 'media')
+	status = models.CharField(choices = STATUS,max_length = 200,blank = True)
 	def __str__(self):
 		return self.title
 
