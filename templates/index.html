@@ -42,9 +42,10 @@
 				{% for cat in categories %}
 
 				<div class=" tab-content tab-content-t ">
-					<div class="tab-pane active text-style" id="{{cat.id}}">
+					<div class="tab-pane {{cat.status}} text-style" id="{{cat.id}}">
 						<div class=" con-w3l">
 							{% for item in items %}
+							{% if cat.id == item.category_id %}
 							<div class="col-md-3 m-wthree">
 								<div class="col-m">								
 									<a href="#" data-toggle="modal" data-target="#myModal1" class="offer-img">
@@ -69,6 +70,7 @@
 									</div>
 								</div>
 							</div>
+							{% endif %}
 							{% endfor %}
 							<div class="clearfix"></div>
 						 </div>
