@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- Carousel
+    ================================================== -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+           <a href="kitchen.html"><img class="first-slide" src="{% static 'images/ba.jpg' %}" alt="First slide"></a>
+       
+        </div>
+        <div class="item">
+          <a href="care.html"> <img class="second-slide " src="{% static 'images/ba1.jpg' %}" alt="Second slide"></a>
+         
+        </div>
+        <div class="item">
+           <a href="hold.html"><img class="third-slide " src="{% static 'images/ba2.jpg' %}" alt="Third slide"></a>
+          
+        </div>
+      </div>
+    
+    </div><!-- /.carousel -->
+
+<!--content-->
+
+<!--content-->
+		<div class="product">
+		<div class="container">
+			<div class="spec ">
+				<h3>Search Products</h3>
+				<div class="ser-t">
+					<b></b>
+					<span><i></i></span>
+					<b class="line"></b>
+				</div>
+			</div>
+				<div class=" con-w3l agileinf">
+							
+							{% for sub in search_query %}
+							<div class="col-md-3 pro-1">
+								<div class="col-m">
+									<a href="#" data-toggle="modal" data-target="#myModal10" class="offer-img">
+										<img src="{{sub.image.url}}" class="img-responsive" alt="">
+									</a>
+									<div class="mid-1">
+										<div class="women">
+											<h6><a href="single.html">{{sub.title}}</h6>							
+										</div>
+										<div class="mid-2">
+											{% if sub.discounted_price %}
+											<p ><label>${{sub.price}}</label><em class="item_price">${{ sub.discounted_price }}</em></p>
+											  <div class="block">
+												<div class="starbox small ghosting"> </div>
+											</div>
+											{% else %}
+											<p ><em class="item_price">${{sub.price}}</em></p>
+											  <div class="block">
+												<div class="starbox small ghosting"> </div>
+											</div>
+											{% endif %}
+											<div class="clearfix"></div>
+										</div>
+											<div class="add">
+										   <button class="btn btn-danger my-cart-btn my-cart-b" data-id="33" data-name="Tea" data-summary="summary 33" data-price="4.50" data-quantity="1" data-image="images/of33.png">Add to Cart</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+							<div class="clearfix"></div>
+						 </div>
+		</div>
+	</div>
+{% endblock %}

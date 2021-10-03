@@ -40,6 +40,9 @@ class Item(models.Model):
 	def __str__(self):
 		return self.title
 
+	def get_subcat_url(self):
+		return reverse ('home:product_detail',kwargs = {'slug':self.slug})
+
 class Ad(models.Model):
 	title = models.CharField(max_length=500)
 	description = models.TextField(blank = True)
